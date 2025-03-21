@@ -1,0 +1,66 @@
+A ClojureScript library to collect user events to Google Analytics.
+
+*The best time to integrate an analytics service was when you ship, the next best time is NOW.*
+
+* Usage
+
+1. Add the dependency to your project:
+   - Leiningen/Boot =[org.clojars.kenhuang/google-analytics "0.1.0-SNAPSHOT"]=
+   - Clojure CLI/deps.edn =org.clojars.kenhuang/google-analytics {:mvn/version "0.1.0-SNAPSHOT"}=
+
+   Clojars page: https://clojars.org/org.clojars.kenhuang/google-analytics
+2. Based on where you are about to use it, you can =require= different namespaces.
+** Using It in a Web App
+Note: I haven't managed to do below JS in ClojureScript yet, so we need to include this in HTML at the moment (remember to replace the measurement id =G-YYYYYYYYYY= with yours):
+#+begin_src html
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYYYYYYYYY"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){ dataLayer.push(arguments); }
+     gtag('js', new Date());
+     gtag('config', 'G-YYYYYYYYYY');
+    </script>
+</head>
+<body>
+</body>
+</html>
+#+end_src
+
+Then collect custom event in CLJS:
+#+begin_src clojure
+(ns demo
+  (:require [google-analytics.web :as ga]))
+
+(ga/collect-event "event_name" {:param1 1
+                                :param2 "interesting"})
+#+end_src
+** Using It in a Chrome Extension
+#+begin_src clojure
+(ns demo
+  (:require [google-analytics.browser-ext :as ga]))
+
+;; init it with the measurement id and api secret
+;; replace them with yours
+(ga/init "G-YYYYYYYYYY" "*******api-secret*****")
+;; collect an event
+(ga/collect-event "event_name" {"param1" "value1"})
+#+end_src
+
+More info on Google:
+[[https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events][Send Measurement Protocol events to Google Analytics | developers.google.com]]
+* License
+
+Copyright © 2025 Ken Huang
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.
