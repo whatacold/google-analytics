@@ -8,7 +8,10 @@ A ClojureScript library to collect user events to Google Analytics.
    - Leiningen/Boot =[org.clojars.kenhuang/google-analytics "0.1.0-SNAPSHOT"]=
    - Clojure CLI/deps.edn =org.clojars.kenhuang/google-analytics {:mvn/version "0.1.0-SNAPSHOT"}=
 
-   Clojars page: https://clojars.org/org.clojars.kenhuang/google-analytics
+   #+BEGIN_EXPORT html
+   <a href="https://clojars.org/org.clojars.kenhuang/google-analytics"><img src="https://img.shields.io/clojars/v/org.clojars.kenhuang/google-analytics.svg" alt="Clojars Project" /></a>
+   #+END_EXPORT
+
 2. Based on where you are about to use it, you can =require= different namespaces.
 ** Using It in a Web App
 Note: I haven't managed to do below JS in ClojureScript yet, so we need to include this in HTML at the moment (remember to replace the measurement id =G-YYYYYYYYYY= with yours):
