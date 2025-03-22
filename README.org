@@ -1,6 +1,6 @@
-A ClojureScript library to collect user events to Google Analytics.
+A ClojureScript library for collecting events for Google Analytics.
 
-*The best time to integrate an analytics service was when you ship, the next best time is NOW.*
+*The best time to integrate an analytics service was when you shipped, the next best time is NOW.*
 
 * Usage
 
@@ -8,6 +8,7 @@ A ClojureScript library to collect user events to Google Analytics.
    - Leiningen/Boot =[org.clojars.kenhuang/google-analytics "0.1.0-SNAPSHOT"]=
    - Clojure CLI/deps.edn =org.clojars.kenhuang/google-analytics {:mvn/version "0.1.0-SNAPSHOT"}=
 
+   Clojars page: https://clojars.org/org.clojars.kenhuang/google-analytics
    #+BEGIN_EXPORT html
    <a href="https://clojars.org/org.clojars.kenhuang/google-analytics"><img src="https://img.shields.io/clojars/v/org.clojars.kenhuang/google-analytics.svg" alt="Clojars Project" /></a>
    #+END_EXPORT
@@ -17,21 +18,21 @@ A ClojureScript library to collect user events to Google Analytics.
 Note: I haven't managed to do below JS in ClojureScript yet, so we need to include this in HTML at the moment (remember to replace the measurement id =G-YYYYYYYYYY= with yours):
 #+begin_src html
 <html>
-<head>
+  <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYYYYYYYYY"></script>
     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){ dataLayer.push(arguments); }
-     gtag('js', new Date());
-     gtag('config', 'G-YYYYYYYYYY');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-YYYYYYYYYY');
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body>
+  </body>
 </html>
 #+end_src
 
-Then collect custom event in CLJS:
+Then collect custom events in CLJS:
 #+begin_src clojure
 (ns demo
   (:require [google-analytics.web :as ga]))
@@ -46,9 +47,9 @@ Then collect custom event in CLJS:
 
 ;; init it with the measurement id and api secret
 ;; replace them with yours
-(ga/init "G-YYYYYYYYYY" "*******api-secret*****")
+(ga/init "G-YYYYYYYYYY" "***your api-secret***")
 ;; collect an event
-(ga/collect-event "event_name" {"param1" "value1"})
+(ga/collect-event "event_name" {:param1 "value1"})
 #+end_src
 
 More info on Google:
