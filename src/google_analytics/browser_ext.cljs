@@ -93,7 +93,7 @@
 (defn collect-event
   "Collect an event to GA.
 
-  `name' should only contain [a-zA-Z0-9_], `params' is a map."
+  `name` should only contain [a-zA-Z0-9_], `params` is a map."
   [name params]
   (when @measurement-id
     (async/go

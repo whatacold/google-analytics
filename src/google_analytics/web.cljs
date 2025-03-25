@@ -42,7 +42,9 @@
     (apply js/window.gtag (clj->js params))))
 
 (defn collect-event
-  "Collect an event to GA."
+  "Collect an event to GA.
+
+  `name` should only contain [a-zA-Z0-9_], `params` is a map."
   [name params]
   ;; (gtag "event" name params)
   (js/window.gtag "event" name (clj->js params)))
