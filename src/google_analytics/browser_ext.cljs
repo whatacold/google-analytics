@@ -84,7 +84,7 @@
        :events [{:name name
                  :params params}]})))
 
-(defn init
+(defn init!
   "Init with the measurement id and the api secret."
   [measurement-id-arg api-secret-arg]
   (reset! measurement-id measurement-id-arg)
@@ -103,7 +103,7 @@
 
 (comment
   @measurement-id
-  (do (init "foo1" "bar1")
+  (do (init! "foo1" "bar1")
       (collect-event "test_click" {:event_name "test"}))
   (gen-client-id)
   (gen-session)

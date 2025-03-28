@@ -39,7 +39,7 @@ Then collect custom events in CLJS:
 
 ;; init it with the measurement id and api secret
 ;; replace them with yours
-(ga/init "G-YYYYYYYYYY" "***your api-secret***")
+(ga/init! "G-YYYYYYYYYY" "***your api-secret***")
 ;; collect an event
 (ga/collect-event "event_name" {:param1 "value1"})
 #+end_src

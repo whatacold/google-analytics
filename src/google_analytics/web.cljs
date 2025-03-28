@@ -6,7 +6,7 @@
     (.push (.-dataLayer js/window) (js-arguments))
     (.log js/console "pushing gtag:" (js-arguments)))
 
-  (defn init [measurement-id]
+  (defn init! [measurement-id]
     (let [el (js/document.createElement "script")]
       (.setAttribute el "src" (str "https://www.googletagmanager.com/gtag/js?id="
                                    measurement-id))
