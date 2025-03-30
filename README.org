@@ -7,28 +7,12 @@ A ClojureScript library for collecting events for Google Analytics.
 1. Add the dependency to your project: [[https://clojars.org/org.clojars.kenhuang/google-analytics][https://img.shields.io/clojars/v/org.clojars.kenhuang/google-analytics.svg]]
 2. Based on where you are about to use it, you can =require= different namespaces.
 ** Using It in a Web App
-Note: I haven't managed to do below JS in ClojureScript yet, so we need to include this in HTML at the moment (remember to replace the measurement id =G-YYYYYYYYYY= with yours):
-#+begin_src html
-<html>
-  <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYYYYYYYYY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-YYYYYYYYYY');
-    </script>
-  </head>
-  <body>
-  </body>
-</html>
-#+end_src
 
-Then collect custom events in CLJS:
 #+begin_src clojure
 (ns demo
   (:require [google-analytics.web :as ga]))
 
+(ga/init! "G-YYYYYYYYYY")
 (ga/collect-event "event_name" {:param1 1
                                 :param2 "interesting"})
 #+end_src
