@@ -1,7 +1,9 @@
 (ns google-analytics.web
   "Collecting events in a web app.")
 
-(defn init! [measurement-id]
+(defn init!
+  "Init with the measurement id."
+  [measurement-id]
   (let [src-el (js/document.createElement "script")]
     (.setAttribute src-el "src" (str "https://www.googletagmanager.com/gtag/js?id="
                                  measurement-id))
