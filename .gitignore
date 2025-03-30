@@ -11,3 +11,6 @@ pom.xml.asc
 /.prepl-port
 .hgignore
 .hg/
+/demo/.shadow-cljs/
+/demo/build/web/js/cljs-runtime/
+/demo/node_modules/

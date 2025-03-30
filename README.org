@@ -44,8 +44,22 @@ Then collect custom events in CLJS:
 (ga/collect-event "event_name" {:param1 "value1"})
 #+end_src
 
+Please note that it requires [[https://developer.chrome.com/docs/extensions/reference/api/storage][storage]] permission to store the client id and the session info.
+
 More info on Google:
 [[https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events][Send Measurement Protocol events to Google Analytics | developers.google.com]]
+** Try the Demo
+There is a demo project using shadow-cljs under =./demo/= directory, you can play with it after replacing the measurement ids and the api secret:
+#+begin_src shell
+# install shadow-cljs
+npm install --save-dev shadow-cljs
+
+# install react for the web app
+npm install "react@17.0.2" "react-dom@17.0.2"
+
+# watch both builds for dev
+npx shadow-cljs watch :webapp :chrome-ext
+#+end_src
 * License
 
 Copyright © 2025 Ken Huang

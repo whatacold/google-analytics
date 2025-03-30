@@ -1,0 +1,18 @@
+;; shadow-cljs configuration
+{:source-paths ["src/"]
+
+ :dependencies [[reagent "1.2.0"]
+                [cljsjs/react "17.0.2-0"]
+                [cljsjs/react-dom "17.0.2-0"]
+                [org.clojars.kenhuang/google-analytics "0.1.2-SNAPSHOT"]]
+
+ :dev-http {8080 "./build/web/"}
+ :host "0.0.0.0"
+
+ :builds {:webapp {:target :browser
+                   :output-dir "./build/web/js/"
+                   :modules {:web {:init-fn web/init}}}
+          :chrome-ext {:target :esm
+                       :runtime :custom
+                       :output-dir "./build/chrome-ext/js"
+                       :modules {:ext {:init-fn ext/init}}}}}

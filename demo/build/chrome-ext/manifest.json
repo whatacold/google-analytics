@@ -1,0 +1,14 @@
+{
+  "manifest_version" : 3,
+  "version" : "0.1.0",
+  "name" : "Extension Demo",
+  "content_scripts" : [ {
+    "js" : [ "js/load.js" ],
+    "matches" : [ "https://github.com/*" ]
+  } ],
+  "web_accessible_resources" : [ {
+    "resources" : [ "*" ],
+    "matches" : [ "https://github.com/*" ]
+  } ],
+  "permissions" : [ "storage" ]
+}
