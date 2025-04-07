@@ -44,6 +44,9 @@ npm install "react@17.0.2" "react-dom@17.0.2"
 # watch both builds for dev
 npx shadow-cljs watch :webapp :chrome-ext
 #+end_src
+
+Demo video:
+[[https://youtu.be/r8D0vb94MeA?si=FPDQnKcpJVp-MYVr][https://img.youtube.com/vi/r8D0vb94MeA/0.jpg]]
 * License
 
 Copyright © 2025 Ken Huang
